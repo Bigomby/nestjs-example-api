@@ -1,0 +1,72 @@
+{
+  "name": "nestjs-example-api",
+  "version": "0.0.0",
+  "description": "A Next.js API with Typeorm and Authentication",
+  "author": "Diego Fernández Barrera",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "prestart:prod": "rm -rf dist && tsc",
+    "dev": "nodemon -e ts -w src/ -x 'ts-node -r tsconfig-paths/register src/main.ts'",
+    "start:prod": "node dist/main.js",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm",
+    "migrate": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:run"
+  },
+  "dependencies": {
+    "@nestjs/common": "^5.0.0",
+    "@nestjs/core": "^5.0.0",
+    "@nestjs/jwt": "^0.2.0",
+    "@nestjs/passport": "^5.1.0",
+    "@nestjs/typeorm": "^5.2.2",
+    "@types/bcrypt": "^3.0.0",
+    "@types/passport-jwt": "^3.0.1",
+    "bcrypt": "^3.0.2",
+    "class-transformer": "^0.1.10",
+    "class-validator": "^0.9.1",
+    "fastify-formbody": "^2.0.0",
+    "mysql": "^2.14.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "pg": "^7.5.0",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^6.0.0",
+    "typeorm": "0.2.8",
+    "typescript": "^2.6.2"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^5.0.0",
+    "@types/express": "^4.0.39",
+    "@types/jest": "^21.1.8",
+    "@types/node": "^8.0.29",
+    "@types/supertest": "^2.0.4",
+    "jest": "^21.2.1",
+    "nodemon": "^1.14.1",
+    "prettier": "^1.11.1",
+    "supertest": "^3.0.0",
+    "ts-jest": "^21.2.4",
+    "ts-loader": "^4.1.0",
+    "ts-node": "3.3.0",
+    "tsconfig-paths": "^3.1.1",
+    "tslint": "5.3.2",
+    "typescript": "2.5.2",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage"
+  }
+}
